@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { EmojiSurvey } from "./Components/emoji-survey";
+import { Home } from "./Components/home";
+import { DataProvider } from './DataContext';
+import { StarSurvey } from "./Components/star-survey";
+import { ResultButton } from "./Components/result-button";
+import { ShowResult } from "./Components/show-result";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/"  element={<Home />} />
+          <Route path="/emoji-survey" element={<EmojiSurvey />} />
+
+          <Route path="/star-survey" element={<StarSurvey />} />
+          <Route path="/result-survey" element={<ResultButton/>}/>
+          <Route path="/show-result" element={<ShowResult/>}></Route>
+        </Routes>
+      </BrowserRouter></DataProvider>
   );
 }
 
