@@ -3,22 +3,51 @@ import React, { createContext, useState, useEffect } from "react";
 type Question = {
   question: string,
   answer: string,
+  time: String,
 };
 
 const emojiSurveyData: Question[] = [
-  { question: "How would you rate the quality of service provided?", answer: "" },
-  { question: "How satisfied are you with the product you received?", answer: "" },
-  { question: "How likely are you to recommend our company to a friend or colleague?", answer: "" },
+  {
+    question: "How would you rate the quality of service provided?",
+    answer: "",
+  },
+  {
+    question: "How satisfied are you with the product you received?",
+    answer: "",
+  },
+  {
+    question:
+      "How likely are you to recommend our company to a friend or colleague?",
+    answer: "",
+  },
   { question: "How easy was it to navigate our website/app?", answer: "" },
-  { question: "How responsive were our customer support representatives to your inquiries?", answer: "" },
+  {
+    question:
+      "How responsive were our customer support representatives to your inquiries?",
+    answer: "",
+  },
 ];
 
 const starSurveyData: Question[] = [
-  { question: "How would you rate the quality of service provided?", answer: "" },
-  { question: "How satisfied are you with the product you received?", answer: "" },
-  { question: "How likely are you to recommend our company to a friend or colleague?", answer: "" },
+  {
+    question: "How would you rate the quality of service provided?",
+    answer: "",
+  },
+  {
+    question: "How satisfied are you with the product you received?",
+    answer: "",
+  },
+  {
+    question:
+      "How likely are you to recommend our company to a friend or colleague?",
+    answer: "",
+  },
   { question: "How easy was it to navigate our website/app? ", answer: "" },
-  { question: "How responsive were our customer support representatives to your inquiries?", answer: "" },
+  {
+    question:
+      "How responsive were our customer support representatives to your inquiries?",
+    answer: "",
+  },
 ];
 
 const DataContext = createContext();

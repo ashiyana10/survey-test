@@ -23,12 +23,12 @@ export function EmojiSurvey() {
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      navigate("/");
+      navigate("/star-survey");
     }
   }, [timeLeft, navigate]);
 
   const handleDataChange = (e, index) => {
-    updateData("emojiSurvey", index, { answer: e });
+    updateData("emojiSurvey", index, { answer: e,time:new Date() });
   };
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>

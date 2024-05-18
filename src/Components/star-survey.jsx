@@ -13,7 +13,7 @@ export function StarSurvey() {
   const navigate = useNavigate();
 
   const handleDataChange = (e, index) => {
-    updateData("starSurvey", index, { answer: e });
+    updateData("starSurvey", index, { answer: e,time:new Date() });
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function StarSurvey() {
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      navigate("/");
+      navigate("/result-survey");
     }
   }, [timeLeft, navigate]);
 
