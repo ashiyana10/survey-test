@@ -59,7 +59,7 @@ export function StarSurvey() {
             ))}
           </tbody>
         </table>
-        <Link to="/result-survey">Next</Link>
+        < button><Link to="/result-survey">Next</Link></button>
       </div>
       <h1>
         Time left: {Math.floor(timeLeft / 60)}:

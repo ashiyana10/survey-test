@@ -38,7 +38,7 @@ export function EmojiSurvey() {
             {data.emojiSurvey.map((item, index) => (
               <tr key={index}>
                 <td>{item.question}</td>
-                <td>
+                <td className="emoji">
                   <input
                     type="radio"
                     name={`emoji${index}`}
@@ -109,7 +109,7 @@ export function EmojiSurvey() {
           </tbody>
         </table>
 
-        <Link to="/star-survey">Next</Link>
+        <button><Link to="/star-survey">Next</Link></button>
       </div>
       <h1>
         Time left: {Math.floor(timeLeft / 60)}:
