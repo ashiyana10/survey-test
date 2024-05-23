@@ -1,7 +1,0 @@
-.skin-tone {
-  filter: sepia(1);
-}
-
-.emoji label:hover {
-  filter: sepia(0.2);
-}

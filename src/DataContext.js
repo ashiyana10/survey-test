@@ -1,78 +1,50 @@
 import React, { createContext, useState, useEffect } from "react";
 
-type Question = {
-  question: string,
-  answer: string,
-  time: String,
-};
-
-const emojiSurveyData: Question[] = [
+const surveyData = [
   {
-    question: "How would you rate the quality of service provided?",
-    answer: "",
-  },
-  {
-    question: "How satisfied are you with the product you received?",
-    answer: "",
-  },
-  {
+    title: "Overall Satisfaction",
     question:
-      "How likely are you to recommend our company to a friend or colleague?",
+      "How satisfied are you with your overall experience with our credit card?",
     answer: "",
+    submit:false,
+    type:"emoji"
   },
-  { question: "How easy was it to navigate our website/app?", answer: "" },
   {
+    title: "Interest Rates and Fees",
     question:
-      "How responsive were our customer support representatives to your inquiries?",
+      "How would you rate the competitiveness of our interest rates and fees?",
     answer: "",
-  },
-];
-
-const starSurveyData: Question[] = [
-  {
-    question: "How would you rate the quality of service provided?",
-    answer: "",
+    submit:false,
+    type:"emoji"
   },
   {
-    question: "How satisfied are you with the product you received?",
-    answer: "",
-  },
-  {
-    question:
-      "How likely are you to recommend our company to a friend or colleague?",
-    answer: "",
-  },
-  { question: "How easy was it to navigate our website/app? ", answer: "" },
-  {
-    question:
-      "How responsive were our customer support representatives to your inquiries?",
-    answer: "",
-  },
+    title:"Online and Mobile Banking",
+    question:"How would you rate your experience with our online and mobile banking services?",
+    answer:"",
+    submit:false,
+    type:"star"
+  }
 ];
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [data, setData] = useState({
-    emojiSurvey: emojiSurveyData,
-    starSurvey: starSurveyData,
+  const [data, setData] = useState({surveyData,
   });
 
-  const updateData = (surveyType, index, newData) => {
+  const updateData = ( index, newData) => {
     setData((prevData) => {
-      const updatedSurvey = [...prevData[surveyType]];
-      updatedSurvey[index] = { ...updatedSurvey[index], ...newData };
+      const newSurveyData = [...prevData.surveyData];
+      newSurveyData[index] = { ...newSurveyData[index], ...newData };
       return {
         ...prevData,
-        [surveyType]: updatedSurvey,
+        surveyData: newSurveyData,
       };
     });
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
+  useEffect(()=>
+  console.log(data),[data])
   return (
     <DataContext.Provider value={{ data, updateData }}>
       {children}

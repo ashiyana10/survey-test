@@ -1,45 +1,28 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DataContext } from "../DataContext";
-import { Star } from "./star";
 export function ShowResult() {
-  const { data, updateData } = useContext(DataContext);
-  const [star, setStar] = useState(Array(5).fill(null));
+  const { data } = useContext(DataContext);
 
   return (
-    <div>
-      <h3>Emoji Survey Result</h3>
-      <table>
-        {data.emojiSurvey.map((item, index) => (
-          <tr key={index}>
-            <td>{item.question}</td>
-            <td>
-              <label
-                style={{ fontSize: "25px" }}
-                dangerouslySetInnerHTML={{ __html: item.answer }}
-              />
-            </td>
-          </tr>
-        ))}
-      </table>
-
-      <h3>Emoji Survey Result</h3>
-      <table>
-        {data.starSurvey.map((item, index) => (
-          <tr key={index}>
-            <td>{item.question}</td>
-            <td>
-              <div style={{ display: "flex" }}>
-                {star.map((_, indexStar) => (
-                  <Star
-                    key={indexStar}
-                    filled={indexStar < data.starSurvey[index].answer}
-                  />
-                ))}
+    <div className="d-flex justify-content-center align-items-center vh-100 ">
+      <div className="text-center box p-5 bg-white rounded-4">
+        <p className="font-36px fw-bold mb-0">Result</p>
+        <span className="font-14px font-gray">Your survey result available here</span>
+        <div className="mt-5">
+        {
+          data.surveyData.map((item,index)=>(
+            <>
+              <div className="d-flex justify-content-between text-center" key={index}>
+                <p className="fw-bold">{item.title}</p>
+                <p>{item.answer}</p>
+                <p>{item.time}</p>
               </div>
-            </td>
-          </tr>
-        ))}
-      </table>
+              <hr/>
+            </>
+          ))
+        }
+        </div>
+      </div>
     </div>
   );
 }
