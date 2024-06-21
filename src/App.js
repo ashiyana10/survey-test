@@ -7,9 +7,11 @@ import { ShowResult } from "./Components/show-result";
 
 
 function App() {
+  const basename = process.env.PUBLIC_URL || '/';
+
   return (
     <DataProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           {/* Defining routers */}
           <Route path="/"  element={<Home />} />
